@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convoy Connect | Humanitarian logistics matchmaker</title>
+  <meta name="description" content="Stichting Convoy Connect connects surplus medical equipment from Rotterdam with accredited humanitarian organisations, and arranges and funds the transport in between.">
+  <link rel="icon" type="image/svg+xml" href="logo/favicon.svg">
+  <link rel="icon" type="image/png" href="logo/favicon.png">
+  <link rel="apple-touch-icon" href="logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <div class="utility">
+    <div class="container utility__inner">
+      <p class="utility__note" data-i18n="utility.note">Foundation in formation, based in Rotterdam</p>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang__btn" data-lang="nl" aria-pressed="false">NL</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="#top" class="brand" aria-label="Convoy Connect, back to top">
+        <img src="logo/logo.svg" alt="Convoy Connect" width="1262" height="224">
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a href="#mission" data-i18n="nav.mission">Mission</a></li>
+          <li><a href="#how" data-i18n="nav.how">How it works</a></li>
+          <li><a href="#pilot" data-i18n="nav.pilot">Pilot</a></li>
+          <li><a href="#why" data-i18n="nav.why">Why this works</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn btn--red site-header__cta" data-i18n="nav.donate" data-form-type="3">Donate</a>
+      <button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+        <span class="sr-only" data-i18n="nav.menu">Menu</span>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Scroll-driven video hero: scrolling plays the drone footage forward -->
+    <section class="vhero is-static" aria-labelledby="vhero-title">
+      <div class="vhero__stage">
+        <canvas class="vhero__canvas" aria-hidden="true"></canvas>
+        <img class="vhero__poster" src="hero/hero-000.webp" alt="" width="1280" height="720" fetchpriority="high">
+        <div class="vhero__shade" aria-hidden="true"></div>
+
+        <div class="container vhero__panels">
+          <div class="vhero__panel" data-from="0" data-to="0.46">
+            <h1 class="vhero__title" id="vhero-title">
+              <span class="vhero__bold" data-i18n="hero.bold">War in Sudan</span>
+            </h1>
+            <p class="vhero__lead" data-i18n="hero.intro">Over 33 million people in Sudan need aid and 13 million have fled. Clinics are closing while usable equipment is written off here. The supplies exist; the route doesn't.</p>
+            <p class="vhero__cue" data-i18n="hero.cue">Scroll to follow the journey</p>
+          </div>
+          <div class="vhero__panel" data-from="0.54" data-to="1.01">
+            <p class="vhero__statement" data-i18n="hero.s3">With your donation, we pay for freight, customs and storage, so medical aid arrives in Sudan.</p>
+            <div class="hero__actions">
+              <a href="#contact" class="btn btn--red" data-i18n="hero.cta1">Offer equipment or cargo space</a>
+              <a href="#how" class="btn btn--light" data-i18n="hero.cta2">See how it works</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vhero__progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- Route -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h2 class="hero__title" data-i18n="hero.routeTitle">From point A to point B.</h2>
+          <p class="hero__lead" data-i18n="hero.lead">Convoy Connect links surplus medical equipment from the Netherlands with accredited humanitarian organisations, and arranges and funds the transport between them.</p>
+        </div>
+
+        <figure class="route" aria-labelledby="route-caption">
+          <svg class="route__svg" viewBox="0 0 420 460" role="img" aria-hidden="true">
+            <path class="route__path" pathLength="1" d="M70 60 C 70 160, 330 140, 330 240 S 110 330, 300 410"/>
+            <path class="route__path route__path--live" pathLength="1" d="M70 60 C 70 160, 330 140, 330 240 S 110 330, 300 410"/>
+            <g class="route__node route__node--a"><circle cx="70" cy="60" r="11"/><circle cx="70" cy="60" r="22" class="route__halo"/></g>
+            <g class="route__node route__node--mid"><circle cx="330" cy="240" r="7"/></g>
+            <g class="route__node route__node--b"><circle cx="300" cy="410" r="11"/><circle cx="300" cy="410" r="22" class="route__halo"/></g>
+          </svg>
+          <div class="route__label route__label--a">
+            <strong data-i18n="route.aTitle">The Netherlands</strong>
+            <span data-i18n="route.a">Point A: surplus at a Dutch hospital, supplier or port company</span>
+          </div>
+          <div class="route__label route__label--mid">
+            <strong data-i18n="route.midTitle">Freight, customs, storage</strong>
+            <span data-i18n="route.mid">Arranged and paid for by us</span>
+          </div>
+          <div class="route__label route__label--b">
+            <strong>Port Sudan</strong>
+            <span data-i18n="route.b">Point B: the cargo door of an accredited aid partner</span>
+          </div>
+          <figcaption id="route-caption" class="sr-only" data-i18n="route.caption">Route from the Netherlands to Port Sudan. Convoy Connect arranges freight, customs and storage between the two points.</figcaption>
+        </figure>
+      </div>
+
+      <div class="container">
+        <article class="feature-card">
+          <p class="feature-card__kicker" data-i18n="feature.kicker">Now preparing</p>
+          <h2 class="feature-card__title" data-i18n="feature.title">Our first shipment: surplus medical equipment for Sudan</h2>
+          <p data-i18n="feature.body">Sudan's humanitarian response is severely underfunded, and the Sudan Health Cluster is actively calling on donors. We start with one carefully documented pilot shipment.</p>
+          <a href="#pilot" class="feature-card__link" data-i18n="feature.link">Read about the pilot</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Problem / mission -->
+    <section class="section" id="mission">
+      <div class="container split">
+        <div>
+          <h2 class="h2" data-i18n="mission.title">The bottleneck isn't goods. It's logistics.</h2>
+        </div>
+        <div class="prose">
+          <p data-i18n="mission.p1">European hospitals, wholesalers and port companies regularly write off usable surplus stock. Meanwhile, aid organisations with a concrete need lack the means to pay for transport, which often costs more than the goods themselves.</p>
+          <p data-i18n="mission.p2">Freight capacity, customs clearance, coordination with the right receiving party and funding for the journey: that link is where aid gets stuck. It's the only part we take on.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audiences (tabs, like the reference's service tabs) -->
+    <section class="section section--fog" id="who">
+      <div class="container">
+        <h2 class="h2" data-i18n="who.title">One point of contact for both sides</h2>
+        <p class="section__intro" data-i18n="who.intro">Companies with surplus rarely ship to a crisis zone themselves: it takes time, money and knowledge of sanctions and export rules. Aid organisations often can't fund the transport. We take over exactly that middle piece.</p>
+
+        <div class="tabs">
+          <div class="tabs__list" role="tablist" aria-label="Who we work with">
+            <button type="button" role="tab" id="tab-supply" aria-controls="panel-supply" aria-selected="true" data-i18n="who.tab1">Hospitals &amp; suppliers</button>
+            <button type="button" role="tab" id="tab-port" aria-controls="panel-port" aria-selected="false" tabindex="-1" data-i18n="who.tab2">Port &amp; logistics companies</button>
+            <button type="button" role="tab" id="tab-aid" aria-controls="panel-aid" aria-selected="false" tabindex="-1" data-i18n="who.tab3">Aid organisations</button>
+            <button type="button" role="tab" id="tab-donor" aria-controls="panel-donor" aria-selected="false" tabindex="-1" data-i18n="who.tab4">Donors</button>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-supply" aria-labelledby="tab-supply">
+            <div class="panel">
+              <h3 data-i18n="who.p1Title">You have usable medical equipment you'd otherwise write off</h3>
+              <ul class="checklist">
+                <li data-i18n="who.p1a">We record what you have and check it's allowed to be exported</li>
+                <li data-i18n="who.p1b">We match it to a verified need reported by a recognised channel</li>
+                <li data-i18n="who.p1c">We arrange collection, paperwork and freight at no cost to you</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tabs__panel" role="tabpanel" id="panel-port" aria-labelledby="tab-port" hidden>
+            <div class="panel">
+              <h3 data-i18n="who.p2Title">You have unused cargo space, storage or customs capacity</h3>
+              <ul class="checklist">
+                <li data-i18n="who.p2a">Contribute freight space, storage or customs handling in kind instead of invoicing</li>
+                <li data-i18n="who.p2b">Sponsor the transport costs of a specific, documented shipment</li>
+                <li data-i18n="who.p2c">Receive a confirmed arrival report you can share with your stakeholders</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tabs__panel" role="tabpanel" id="panel-aid" aria-labelledby="tab-aid" hidden>
+            <div class="panel">
+              <h3 data-i18n="who.p3Title">You're an accredited organisation with a concrete need</h3>
+              <ul class="checklist">
+                <li data-i18n="who.p3a">Tell us what equipment you need; supply follows real demand, not the other way round</li>
+                <li data-i18n="who.p3b">We cover freight, customs documents and storage up to your cargo door</li>
+                <li data-i18n="who.p3c">You stay in charge of distribution to beneficiaries</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tabs__panel" role="tabpanel" id="panel-donor" aria-labelledby="tab-donor" hidden>
+            <div class="panel">
+              <h3 data-i18n="who.p4Title">You want your gift to move aid that already exists</h3>
+              <ul class="checklist">
+                <li data-i18n="who.p4a">Your donation pays for transport and coordination only, never for purchasing goods</li>
+                <li data-i18n="who.p4b">Every shipment is documented, from intake to confirmed arrival</li>
+                <li data-i18n="who.p4c">We are applying for ANBI status so gifts become tax-deductible</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="how">
+      <div class="container">
+        <h2 class="h2" data-i18n="how.title">Five steps, every shipment</h2>
+        <p class="section__intro" data-i18n="how.intro">We never take ownership of the goods or responsibility for the final delivery. We arrange and fund transport from point A to point B, and document every step.</p>
+        <ol class="steps">
+          <li class="step">
+            <h3 data-i18n="how.s1t">Intake</h3>
+            <p data-i18n="how.s1">A company tells us it has surplus stock or spare capacity.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="how.s2t">Verify &amp; classify</h3>
+            <p data-i18n="how.s2">We check the goods are permitted, not sanctioned and not dual-use, and that transport is feasible.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="how.s3t">Match</h3>
+            <p data-i18n="how.s3">We link the offer to a current, verified need from a recognised channel.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="how.s4t">Ship &amp; fund</h3>
+            <p data-i18n="how.s4">Freight space, customs documents and costs are arranged, covered by donations or sponsorship.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="how.s5t">Confirm</h3>
+            <p data-i18n="how.s5">Arrival at the accredited partner is confirmed and recorded, as the basis for reporting to donors.</p>
+          </li>
+        </ol>
+      </div>
+      <!-- a small cargo ship sails along the waterline into the next section; purely decorative -->
+      <div class="shipline" aria-hidden="true">
+        <svg class="shipline__ship" viewBox="0 0 72 30" width="72" height="30">
+          <rect x="22" y="2" width="7" height="9" fill="#0F1B2D"/>
+          <rect x="20" y="0" width="11" height="3" fill="#0F1B2D"/>
+          <rect x="32" y="6" width="9" height="7" fill="#C40A0D"/>
+          <rect x="42" y="6" width="9" height="7" fill="#4F5D70"/>
+          <rect x="52" y="6" width="9" height="7" fill="#C40A0D"/>
+          <rect x="37" y="0" width="9" height="6" fill="#4F5D70"/>
+          <rect x="47" y="0" width="9" height="6" fill="#C40A0D"/>
+          <path d="M4 14H70L63 26H11Z" fill="#0F1B2D"/>
+          <rect x="4" y="14" width="66" height="2" fill="#C40A0D"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Boundaries -->
+    <section class="section section--navy" id="boundaries">
+      <div class="container split">
+        <div>
+          <h2 class="h2" data-i18n="bound.title">Specialists in the missing link</h2>
+          <p class="section__intro" data-i18n="bound.intro">We focus on the logistics between supply and demand, so medical aid ends up where it's needed most.</p>
+        </div>
+        <div class="do-dont">
+          <div>
+            <h3 data-i18n="bound.doTitle">What we do</h3>
+            <ul class="checklist checklist--light">
+              <li data-i18n="bound.do1">Map surplus stock and spare capacity at Dutch companies</li>
+              <li data-i18n="bound.do2">Match it to verified demand from recognised aid organisations</li>
+              <li data-i18n="bound.do3">Fund freight, customs and storage through donations and sponsorship</li>
+              <li data-i18n="bound.do4">Coordinate and document both sides of every shipment</li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="bound.dontTitle">What we don't do</h3>
+            <ul class="crosslist">
+              <li data-i18n="bound.dont1">Raise money for food, medicine or goods themselves</li>
+              <li data-i18n="bound.dont2">Verify end recipients ourselves; we only work with accredited mechanisms</li>
+              <li data-i18n="bound.dont3">Deliver directly to beneficiaries; our role stops at a partner's cargo door</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilot -->
+    <section class="section" id="pilot">
+      <div class="container split">
+        <div>
+          <h2 class="h2" data-i18n="pilot.title">Why we start with one pilot</h2>
+          <div class="prose">
+            <p data-i18n="pilot.p1">Aid organisations receive many well-meant offers that don't match what is actually needed. We work the other way round: we start from a verified need reported by an accredited aid organisation, only send equipment that has been tested and proven to work, check every shipment against sanctions and export rules in advance, and only ship once the transport is paid for.</p>
+            <p data-i18n="pilot.p2">With one carefully documented pilot, we want to show that this approach works. We follow the shipment from collection to arrival and record every step: the checks, the costs and the lead times. Only once the first shipment has demonstrably arrived do we scale up.</p>
+          </div>
+        </div>
+        <div class="criteria">
+          <h3 data-i18n="pilot.critTitle">We call it a success when</h3>
+          <ul class="checklist">
+            <li data-i18n="pilot.c1">The shipment demonstrably arrives at the intended, accredited recipient</li>
+            <li data-i18n="pilot.c2">The process is documented and repeatable: checklist, contacts, lead times</li>
+            <li data-i18n="pilot.c3">At least one port partner wants to support the next shipment</li>
+          </ul>
+          <p class="criteria__note" data-i18n="pilot.note">We never start a shipment without the transport costs covered in advance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it works / benchmarks -->
+    <section class="section section--fog" id="why">
+      <div class="container">
+        <h2 class="h2" data-i18n="why.title">The matchmaker model already works elsewhere</h2>
+        <p class="section__intro" data-i18n="why.intro">We're new, but the model isn't. Two international organisations show what it can do at scale.</p>
+        <div class="proof">
+          <article class="proof__item">
+            <p class="proof__figure" data-count="97.9" data-decimals="1" data-suffix="%">97.9%</p>
+            <h3>Airlink</h3>
+            <p data-i18n="why.airlink">Pools available air freight capacity and surplus stock for verified aid organisations, without owning a fleet. In 2024, 97.9% of its $13.1 million revenue came from contributions.</p>
+          </article>
+          <article class="proof__item">
+            <p class="proof__figure" data-count="117">117</p>
+            <h3>MedShare</h3>
+            <p data-i18n="why.medshare">Redistributes surplus medical supplies to healthcare facilities in 117 countries. Receiving facilities order exactly what they need, so donated equipment doesn't go unused.</p>
+          </article>
+          <article class="proof__item proof__item--accent">
+            <p class="proof__figure" data-count="1">1</p>
+            <h3 data-i18n="why.usTitle">Convoy Connect</h3>
+            <p data-i18n="why.us">Brings that model to the port of Rotterdam, starting with one well-documented shipment to Sudan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--navy" id="contact">
+      <div class="container split">
+        <div>
+          <h2 class="h2" data-i18n="contact.title">Have equipment, cargo space or questions?</h2>
+          <p class="section__intro" data-i18n="contact.intro">Tell us what you can offer or what you need. We'll get back to you within a few working days.</p>
+          <p class="contact__direct"><a href="mailto:info@convoyconnect.nl">info@convoyconnect.nl</a></p>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="f-name" data-i18n="form.name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+            <p class="field__error" id="f-name-err" data-i18n="form.nameErr" hidden>Enter your name so we know who to reply to.</p>
+          </div>
+          <div class="field">
+            <label for="f-org"><span data-i18n="form.org">Organisation</span> <span class="field__optional" data-i18n="form.optional">(optional)</span></label>
+            <input id="f-org" name="organisation" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-email" data-i18n="form.email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err">
+            <p class="field__error" id="f-email-err" data-i18n="form.emailErr" hidden>Enter an email address.</p>
+          </div>
+          <div class="field">
+            <label for="f-type" data-i18n="form.type">I'd like to</label>
+            <select id="f-type" name="type">
+              <option data-i18n="form.t1">Offer medical equipment</option>
+              <option data-i18n="form.t2">Offer cargo space, storage or customs handling</option>
+              <option data-i18n="form.t3">Report a need as an aid organisation</option>
+              <option data-i18n="form.t4">Donate or sponsor a shipment</option>
+              <option data-i18n="form.t5">Ask something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg" data-i18n="form.msg">Message</label>
+            <textarea id="f-msg" name="message" rows="5" required aria-describedby="f-msg-err"></textarea>
+            <p class="field__error" id="f-msg-err" data-i18n="form.msgErr" hidden>Add a short message describing what you can offer or need.</p>
+          </div>
+          <button type="submit" class="btn btn--red" data-i18n="form.submit">Send message</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <img class="site-footer__logo" src="logo/logo-white.svg" alt="Convoy Connect" width="1262" height="224" loading="lazy">
+      <p class="site-footer__tagline" data-i18n="footer.tagline">What is surplus here is life-saving there.</p>
+    </div>
+    <div class="container site-footer__grid">
+      <div class="site-footer__about">
+        <h2 class="site-footer__heading" data-i18n="footer.aboutTitle">About us</h2>
+        <p data-i18n="footer.about">Stichting Convoy Connect is a Rotterdam foundation in formation that brokers logistics between surplus medical equipment and accredited humanitarian organisations.</p>
+      </div>
+      <nav aria-labelledby="footer-nav-title">
+        <h2 class="site-footer__heading" id="footer-nav-title" data-i18n="footer.nav">Navigate</h2>
+        <ul>
+          <li><a href="#mission" data-i18n="nav.mission">Mission</a></li>
+          <li><a href="#how" data-i18n="nav.how">How it works</a></li>
+          <li><a href="#pilot" data-i18n="nav.pilot">Pilot</a></li>
+          <li><a href="#why" data-i18n="nav.why">Why this works</a></li>
+          <li><a href="#contact" data-i18n="nav.cta">Get involved</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="site-footer__heading" data-i18n="footer.contact">Contact</h2>
+        <ul>
+          <li><a href="mailto:info@convoyconnect.nl">info@convoyconnect.nl</a></li>
+          <li><a href="tel:+31624546910">+31 6 24546910</a></li>
+          <li>Rotterdam, <span data-i18n="footer.nl">the Netherlands</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading" data-i18n="footer.details">Foundation details</h2>
+        <ul>
+          <li data-i18n="footer.kvk">Chamber of Commerce (KvK): pending</li>
+          <li data-i18n="footer.anbi">ANBI status: application pending</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; <span id="year">2026</span> Stichting Convoy Connect</p>
+      <ul class="site-footer__legal">
+        <li><a href="disclaimer.html" data-i18n="footer.disclaimer">Disclaimer</a></li>
+        <li><a href="cookiebeleid.html" data-i18n="footer.cookies">Cookie policy</a></li>
+        <li><a href="privacyverklaring.html" data-i18n="footer.privacy">Privacy statement</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

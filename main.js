@@ -1,0 +1,442 @@
+(function () {
+  'use strict';
+
+  // ---------- Language (EN in the HTML, NL here) ----------
+  var NL = {
+    'skip': 'Naar de inhoud',
+    'utility.note': 'Stichting in oprichting, gevestigd in Rotterdam',
+    'nav.mission': 'Missie',
+    'nav.how': 'Werkwijze',
+    'nav.pilot': 'Pilot',
+    'nav.why': 'Waarom het werkt',
+    'nav.cta': 'Doe mee',
+    'nav.donate': 'Doneer',
+    'nav.menu': 'Menu',
+    'hero.bold': 'Oorlog in Soedan',
+    'hero.intro': 'Ruim 33 miljoen mensen in Soedan hebben hulp nodig en 13 miljoen zijn op de vlucht. Zorgposten sluiten, terwijl in Nederland bruikbare medische apparatuur wordt afgeschreven. Niet de spullen ontbreken, maar de weg ernaartoe.',
+    'hero.lead': 'Convoy Connect koppelt overtollige medische apparatuur uit Nederland aan erkende humanitaire organisaties, en regelt en financiert het transport daartussen.',
+    'hero.cta1': 'Bied apparatuur of vrachtruimte aan',
+    'hero.cta2': 'Bekijk de werkwijze',
+    'hero.cue': 'Scroll om de reis te volgen',
+    'hero.s3': 'Met jouw donatie betalen we vracht, douane en opslag, zodat medische hulp in Soedan aankomt.',
+    'hero.routeTitle': 'Van punt A naar punt B.',
+    'route.aTitle': 'Nederland',
+    'route.a': 'Punt A: overschot bij een Nederlands ziekenhuis, leverancier of havenbedrijf',
+    'route.midTitle': 'Vracht, douane, opslag',
+    'route.mid': 'Door ons geregeld en betaald',
+    'route.b': 'Punt B: de vrachtdeur van een erkende hulppartner',
+    'route.caption': 'Route van Nederland naar Port Sudan. Convoy Connect regelt vracht, douane en opslag tussen beide punten.',
+    'feature.kicker': 'In voorbereiding',
+    'feature.title': 'Onze eerste zending: overtollige medische apparatuur voor Soedan',
+    'feature.body': 'De humanitaire respons in Soedan is zwaar onderfinancierd en de Sudan Health Cluster roept donoren actief op om bij te dragen. We beginnen met één zorgvuldig gedocumenteerde pilotzending.',
+    'feature.link': 'Lees over de pilot',
+    'mission.title': 'Het knelpunt zijn niet de goederen, maar de logistiek.',
+    'mission.p1': 'Europese ziekenhuizen, groothandels en havenbedrijven schrijven regelmatig bruikbare voorraad af. Tegelijkertijd missen hulporganisaties met een concrete vraag de middelen om het transport te betalen, dat vaak duurder is dan de goederen zelf.',
+    'mission.p2': 'Vrachtcapaciteit, douaneafhandeling, afstemming met de juiste ontvangende partij en financiering van de reis: in die schakel loopt hulp vast. Dat is het enige stuk dat wij oppakken.',
+    'who.title': 'Eén aanspreekpunt voor beide kanten',
+    'who.intro': 'Bedrijven met overschot versturen zelden zelf een zending naar een crisisgebied: dat kost tijd, geld en kennis van sanctie- en exportregels. Hulporganisaties kunnen het transport vaak niet betalen. Wij nemen precies dat tussenstuk over.',
+    'who.tab1': 'Ziekenhuizen & leveranciers',
+    'who.tab2': 'Haven- & logistieke bedrijven',
+    'who.tab3': 'Hulporganisaties',
+    'who.tab4': 'Donateurs',
+    'who.p1Title': 'U heeft bruikbare medische apparatuur die anders wordt afgeschreven',
+    'who.p1a': 'Wij inventariseren wat u heeft en controleren of het geëxporteerd mag worden',
+    'who.p1b': 'Wij koppelen het aan een geverifieerde vraag van een erkend kanaal',
+    'who.p1c': 'Wij regelen ophalen, documenten en vracht, zonder kosten voor u',
+    'who.p2Title': 'U heeft onbenutte vrachtruimte, opslag of douanecapaciteit',
+    'who.p2a': 'Draag vrachtruimte, opslag of douaneafhandeling bij in natura in plaats van op factuur',
+    'who.p2b': 'Sponsor de transportkosten van een concrete, gedocumenteerde zending',
+    'who.p2c': 'Ontvang een bevestigd aankomstverslag om te delen met uw stakeholders',
+    'who.p3Title': 'U bent een erkende organisatie met een concrete behoefte',
+    'who.p3a': 'Geef aan welke apparatuur u nodig heeft; het aanbod volgt de echte vraag, niet andersom',
+    'who.p3b': 'Wij dekken vracht, douanedocumenten en opslag tot aan uw vrachtdeur',
+    'who.p3c': 'U blijft verantwoordelijk voor de verdeling onder begunstigden',
+    'who.p4Title': 'U wilt dat uw gift hulp verplaatst die al bestaat',
+    'who.p4a': 'Uw donatie betaalt alleen transport en coördinatie, nooit de aankoop van goederen',
+    'who.p4b': 'Elke zending wordt gedocumenteerd, van intake tot bevestigde aankomst',
+    'who.p4c': 'We vragen de ANBI-status aan, zodat giften fiscaal aftrekbaar worden',
+    'how.title': 'Vijf stappen, bij elke zending',
+    'how.intro': 'We worden nooit eigenaar van de goederen en nemen geen verantwoordelijkheid voor de uiteindelijke aflevering. We regelen en financieren het transport van punt A naar punt B, en leggen elke stap vast.',
+    'how.s1t': 'Intake',
+    'how.s1': 'Een bedrijf meldt overtollige voorraad of vrije capaciteit.',
+    'how.s2t': 'Verificatie',
+    'how.s2': 'We toetsen of de goederen toegestaan, niet gesanctioneerd en niet dual-use zijn, en of vervoer haalbaar is.',
+    'how.s3t': 'Matching',
+    'how.s3': 'We koppelen het aanbod aan een actuele, geverifieerde behoefte van een erkend kanaal.',
+    'how.s4t': 'Transport & financiering',
+    'how.s4': 'Vrachtruimte, douanedocumenten en kosten worden geregeld, gedekt door donaties of sponsoring.',
+    'how.s5t': 'Bevestiging',
+    'how.s5': 'Aankomst bij de erkende partner wordt bevestigd en vastgelegd, als basis voor verantwoording aan donateurs.',
+    'bound.title': 'Specialist in de ontbrekende schakel',
+    'bound.intro': 'We richten ons op de logistiek tussen aanbod en vraag, zodat medische hulp terechtkomt waar die het hardst nodig is.',
+    'bound.doTitle': 'Wat we wél doen',
+    'bound.do1': 'Overtollige voorraad en restcapaciteit bij Nederlandse bedrijven in kaart brengen',
+    'bound.do2': 'Die koppelen aan geverifieerde vraag van erkende hulporganisaties',
+    'bound.do3': 'Vracht, douane en opslag financieren via donaties en sponsoring',
+    'bound.do4': 'Beide kanten van elke zending coördineren en documenteren',
+    'bound.dontTitle': 'Wat we niet doen',
+    'bound.dont1': 'Geld werven voor voedsel, medicijnen of goederen zelf',
+    'bound.dont2': 'Zelf eindontvangers verifiëren; we werken alleen met erkende mechanismen',
+    'bound.dont3': 'Direct afleveren aan begunstigden; onze rol stopt bij de vrachtdeur van een partner',
+    'pilot.title': 'Waarom we beginnen met één pilot',
+    'pilot.p1': 'Hulporganisaties krijgen veel goedbedoelde aanbiedingen die niet aansluiten op wat er echt nodig is. Wij werken andersom: we beginnen bij een geverifieerde vraag van een erkende hulporganisatie, sturen alleen apparatuur die is getest en aantoonbaar werkt, toetsen elke zending vooraf op sancties en exportregels, en vertrekken pas als het transport betaald is.',
+    'pilot.p2': 'Met één zorgvuldig gedocumenteerde pilot willen we laten zien dat die aanpak werkt. We volgen de zending van ophalen tot aankomst en leggen elke stap vast: de controles, de kosten en de doorlooptijden. Pas als de eerste zending aantoonbaar is aangekomen, schalen we op.',
+    'pilot.critTitle': 'Het is een succes als',
+    'pilot.c1': 'De zending aantoonbaar aankomt bij de beoogde, erkende ontvanger',
+    'pilot.c2': 'Het proces gedocumenteerd en herhaalbaar is: checklist, contactpersonen, doorlooptijden',
+    'pilot.c3': 'Minstens één havenpartner een volgende zending wil ondersteunen',
+    'pilot.note': 'We starten nooit een zending zonder dat de transportkosten vooraf gedekt zijn.',
+    'why.title': 'Het matchmaker-model werkt elders al',
+    'why.intro': 'Wij zijn nieuw, het model niet. Twee internationale organisaties laten zien wat het op schaal kan.',
+    'why.airlink': 'Bundelt beschikbare luchtvrachtcapaciteit en overtollige voorraad voor geverifieerde hulporganisaties, zonder eigen vloot. In 2024 kwam 97,9% van de omzet van $13,1 miljoen uit bijdragen.',
+    'why.medshare': 'Herverdeelt overtollige medische middelen naar zorginstellingen in 117 landen. Ontvangers bestellen precies wat ze nodig hebben, zodat gedoneerde apparatuur niet ongebruikt blijft liggen.',
+    'why.usTitle': 'Convoy Connect',
+    'why.us': 'Brengt dat model naar de Rotterdamse haven, te beginnen met één goed gedocumenteerde zending naar Soedan.',
+    'contact.title': 'Apparatuur, vrachtruimte of vragen?',
+    'contact.intro': 'Vertel ons wat u kunt aanbieden of nodig heeft. We reageren binnen enkele werkdagen.',
+    'form.name': 'Naam',
+    'form.nameErr': 'Vul uw naam in, zodat we weten wie we antwoorden.',
+    'form.org': 'Organisatie',
+    'form.optional': '(optioneel)',
+    'form.email': 'E-mail',
+    'form.emailErr': 'Vul een e-mailadres in.',
+    'form.type': 'Ik wil graag',
+    'form.t1': 'Medische apparatuur aanbieden',
+    'form.t2': 'Vrachtruimte, opslag of douaneafhandeling aanbieden',
+    'form.t3': 'Een behoefte melden als hulporganisatie',
+    'form.t4': 'Doneren of een zending sponsoren',
+    'form.t5': 'Iets anders vragen',
+    'form.msg': 'Bericht',
+    'form.msgErr': 'Beschrijf kort wat u kunt aanbieden of nodig heeft.',
+    'form.submit': 'Bericht versturen',
+    'footer.about': 'Stichting Convoy Connect is een Rotterdamse stichting in oprichting die logistiek bemiddelt tussen overtollige medische apparatuur en geaccrediteerde humanitaire organisaties.',
+    'footer.aboutTitle': 'Over ons',
+    'footer.tagline': 'Wat hier overbodig is, is daar levensreddend.',
+    'footer.nav': 'Navigatie',
+    'footer.details': 'Stichtingsgegevens',
+    'footer.contact': 'Contact',
+    'footer.nl': 'Nederland',
+    'footer.disclaimer': 'Disclaimer',
+    'footer.cookies': 'Cookiebeleid',
+    'footer.privacy': 'Privacyverklaring',
+    'footer.kvk': 'KvK-nummer: volgt',
+    'footer.anbi': 'ANBI-status: aanvraag loopt'
+  };
+  var STATUS = {
+    en: { opening: 'Your email app is opening with the message ready to send.', invalid: 'Some fields need attention. Check the messages below each field.' },
+    nl: { opening: 'Uw e-mailprogramma opent met het bericht klaar om te versturen.', invalid: 'Enkele velden hebben aandacht nodig. Bekijk de meldingen onder de velden.' }
+  };
+
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var EN = {};
+  nodes.forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
+  var current = 'en';
+
+  function setLang(lang) {
+    current = lang;
+    var dict = lang === 'nl' ? NL : EN;
+    nodes.forEach(function (el) {
+      var key = el.dataset.i18n;
+      if (dict[key] != null) el[lang === 'nl' ? 'textContent' : 'innerHTML'] = dict[key];
+    });
+    document.documentElement.lang = lang;
+    document.dispatchEvent(new Event('cc:lang'));
+    document.querySelectorAll('.lang__btn').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+    try { localStorage.setItem('cc-lang', lang); } catch (e) {}
+  }
+  document.querySelectorAll('.lang__btn').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.lang); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('cc-lang'); } catch (e) {}
+  if (saved === 'nl' || (!saved && /^nl\b/i.test(navigator.language || ''))) setLang('nl');
+
+  // ---------- Header: scrolled state + mobile menu ----------
+  var header = document.querySelector('.site-header');
+  var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 4); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  function closeNav() { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
+  });
+
+  // Highlight the section currently in view
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__list a'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) {
+          if (a.getAttribute('href') === '#' + en.target.id) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
+  }
+
+  // ---------- Tabs (WAI-ARIA pattern) ----------
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function selectTab(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { selectTab(t); });
+    t.addEventListener('keydown', function (e) {
+      var next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (next === undefined) return;
+      e.preventDefault();
+      selectTab(tabs[(next + tabs.length) % tabs.length], true);
+    });
+  });
+
+  // ---------- Contact form: validate, then open a pre-filled email ----------
+  // Buttons like "Donate" jump to the form with the matching request type chosen
+  document.querySelectorAll('[data-form-type]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      document.getElementById('f-type').selectedIndex = parseInt(link.dataset.formType, 10);
+    });
+  });
+  var form = document.getElementById('contact-form');
+  var status = form.querySelector('.form__status');
+  var rules = {
+    'f-name': function (v) { return v.trim().length > 0; },
+    'f-email': function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); },
+    'f-msg': function (v) { return v.trim().length > 0; }
+  };
+  function check(id) {
+    var input = document.getElementById(id);
+    var ok = rules[id](input.value);
+    input.setAttribute('aria-invalid', String(!ok));
+    document.getElementById(id + '-err').hidden = ok;
+    return ok;
+  }
+  Object.keys(rules).forEach(function (id) {
+    var input = document.getElementById(id);
+    input.addEventListener('blur', function () { if (input.value) check(id); });
+    input.addEventListener('input', function () { if (input.getAttribute('aria-invalid') === 'true') check(id); });
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var bad = Object.keys(rules).filter(function (id) { return !check(id); });
+    if (bad.length) {
+      status.textContent = STATUS[current].invalid;
+      document.getElementById(bad[0]).focus();
+      return;
+    }
+    var f = form.elements;
+    var subject = f.type.value + ' | ' + f.name.value + (f.organisation.value ? ' (' + f.organisation.value + ')' : '');
+    var body = f.message.value + '\n\n' + f.name.value + '\n' + (f.organisation.value ? f.organisation.value + '\n' : '') + f.email.value;
+    status.textContent = STATUS[current].opening;
+    window.location.href = 'mailto:info@convoyconnect.nl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
+  // ---------- Video hero: scroll position picks the frame ----------
+  var hero = document.querySelector('.vhero');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (hero && !reduce.matches) {
+    var FRAMES = 110;
+    var canvas = hero.querySelector('.vhero__canvas');
+    var ctx = canvas.getContext('2d');
+    var panels = Array.prototype.slice.call(hero.querySelectorAll('.vhero__panel'));
+    var bar = hero.querySelector('.vhero__progress');
+    var imgs = new Array(FRAMES);
+    var shown = -1, frameGoal = 0, frameAt = 0, ticking = false;
+
+    hero.classList.remove('is-static');
+
+    function src(i) { return 'hero/hero-' + String(i).padStart(3, '0') + '.webp'; }
+    // Load coarse frames first (every 8th), then fill in, so scrubbing works early
+    var order = [];
+    [8, 4, 2, 1].forEach(function (step) {
+      for (var i = 0; i < FRAMES; i += step) if (order.indexOf(i) < 0) order.push(i);
+    });
+    var next = 0;
+    function loadMore() {
+      if (next >= order.length) return;
+      var i = order[next++], img = new Image();
+      img.decoding = 'async';
+      img.onload = function () { imgs[i] = img; if (Math.abs(i - frameAt) < 2 || shown < 0) draw(true); loadMore(); };
+      img.onerror = loadMore;
+      img.src = src(i);
+    }
+    for (var k = 0; k < 4; k++) loadMore();
+
+    function nearestLoaded(i) {
+      for (var d = 0; d < FRAMES; d++) {
+        if (imgs[i - d]) return i - d;
+        if (imgs[i + d]) return i + d;
+      }
+      return -1;
+    }
+
+    function size() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(canvas.clientWidth * dpr);
+      canvas.height = Math.round(canvas.clientHeight * dpr);
+      shown = -1; draw(true);
+    }
+
+    function paint(img, alpha) {
+      var cw = canvas.width, ch = canvas.height;
+      var s = Math.max(cw / img.width, ch / img.height);   // object-fit: cover
+      var w = img.width * s, h = img.height * s;
+      ctx.globalAlpha = alpha;
+      ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+      ctx.globalAlpha = 1;
+    }
+
+    // Draw the frame at `frameAt`, blending the next frame in by the fractional part
+    // so slow scrolling moves smoothly instead of stepping from frame to frame
+    function draw(force) {
+      var key = Math.round(frameAt * 20);
+      if (key === shown && !force) return;
+      var a = Math.floor(frameAt), t = frameAt - a;
+      if (imgs[a] && (t < 0.05 || !imgs[a + 1])) {
+        paint(imgs[a], 1);
+      } else if (imgs[a] && imgs[a + 1]) {
+        paint(imgs[a], 1);
+        paint(imgs[a + 1], t);
+      } else {
+        var i = nearestLoaded(Math.round(frameAt));
+        if (i < 0) return;
+        paint(imgs[i], 1);
+      }
+      shown = key;
+    }
+
+    var stage = hero.querySelector('.vhero__stage');
+    var headerH = document.querySelector('.site-header').offsetHeight;
+
+    // 0 when the hero reaches the header, 1 when the pinned stage is about to scroll away
+    function progress() {
+      var span = hero.offsetHeight - stage.offsetHeight;
+      return Math.min(1, Math.max(0, (headerH - hero.getBoundingClientRect().top) / span));
+    }
+
+    // Panel opacity: fades over 6% of the scroll at each edge; the first panel starts
+    // fully visible and the last one stays visible at the end
+    var EDGE = 0.06;
+    function opacity(p, from, to) {
+      if (p < from || p > to) return 0;
+      var fadeIn = from === 0 ? 1 : (p - from) / EDGE;
+      var fadeOut = to > 1 ? 1 : (to - p) / EDGE;
+      return Math.min(1, fadeIn, fadeOut);
+    }
+
+    function update() {
+      var p = progress();
+      frameGoal = p * (FRAMES - 1);
+      bar.style.setProperty('--p', p.toFixed(4));
+      panels.forEach(function (el) {
+        var o = opacity(p, parseFloat(el.dataset.from), parseFloat(el.dataset.to));
+        el.style.setProperty('--o', o.toFixed(3));
+        el.classList.toggle('is-on', o > 0.05);
+      });
+      if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+    }
+
+    // Ease toward the frameGoal frame so fast scrolls still look like smooth footage
+    function tick() {
+      frameAt += (frameGoal - frameAt) * 0.2;
+      if (Math.abs(frameGoal - frameAt) < 0.01) frameAt = frameGoal;
+      draw(false);
+      if (frameAt !== frameGoal) requestAnimationFrame(tick); else ticking = false;
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', size);
+    reduce.addEventListener && reduce.addEventListener('change', function (e) { if (e.matches) location.reload(); });
+    size(); update();
+  }
+
+  // ---------- Benchmark figures: count up once they scroll into view ----------
+  var figures = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  function formatFigure(el, value) {
+    var dec = parseInt(el.dataset.decimals || '0', 10);
+    var text = value.toFixed(dec);
+    if (document.documentElement.lang === 'nl') text = text.replace('.', ',');
+    el.textContent = text + (el.dataset.suffix || '');
+  }
+  function countUp(el) {
+    var end = parseFloat(el.dataset.count), start = null, DURATION = 2500;
+    el.dataset.done = 'running';
+    function step(now) {
+      if (start === null) start = now;
+      var t = Math.min(1, (now - start) / DURATION);
+      var eased = 1 - Math.pow(1 - t, 3);            // ease-out: fast start, gentle landing
+      formatFigure(el, end * eased);
+      if (t < 1) requestAnimationFrame(step); else el.dataset.done = 'yes';
+    }
+    requestAnimationFrame(step);
+  }
+  if (figures.length && !reduce.matches && 'IntersectionObserver' in window) {
+    figures.forEach(function (el) { formatFigure(el, 0); });
+    var fo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        countUp(en.target);
+        fo.unobserve(en.target);
+      });
+    }, { threshold: 0.6 });
+    figures.forEach(function (el) { fo.observe(el); });
+  } else {
+    figures.forEach(function (el) { formatFigure(el, parseFloat(el.dataset.count)); });
+  }
+  // keep the decimal separator in step with the language switch
+  document.addEventListener('cc:lang', function () {
+    figures.forEach(function (el) {
+      if (el.dataset.done === 'yes' || !el.dataset.done) {
+        formatFigure(el, el.dataset.done === 'yes' || reduce.matches ? parseFloat(el.dataset.count) : 0);
+      }
+    });
+  });
+
+  // ---------- Route diagram: the red line follows the scroll, both ways ----------
+  var route = document.querySelector('.route');
+  if (route && !reduce.matches) {
+    var line = route.querySelector('.route__path--live');
+    var routeTicking = false;
+    route.classList.add('is-live');
+
+    // 0 once the diagram's top has risen to 72% of the screen height,
+    // 1 when its bottom reaches 68%, so the line finishes while the whole route is in view
+    function routeProgress() {
+      var r = route.getBoundingClientRect(), vh = window.innerHeight;
+      var start = vh * 0.72, end = vh * 0.68;
+      return Math.min(1, Math.max(0, (start - r.top) / (r.height + start - end)));
+    }
+    function drawRoute() {
+      routeTicking = false;
+      var p = routeProgress();
+      line.style.strokeDashoffset = (1 - p).toFixed(4);
+      route.classList.toggle('reach-mid', p > 0.5);
+      route.classList.toggle('reach-b', p > 0.97);
+    }
+    function onRouteScroll() {
+      if (!routeTicking) { routeTicking = true; requestAnimationFrame(drawRoute); }
+    }
+    window.addEventListener('scroll', onRouteScroll, { passive: true });
+    window.addEventListener('resize', onRouteScroll);
+    drawRoute();
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
