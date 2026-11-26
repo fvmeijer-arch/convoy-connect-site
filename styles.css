@@ -2,13 +2,13 @@
 :root {
   --red: #E90C0F;          /* logo red */
   --red-deep: #C40A0D;     /* hover / text-on-white red (AA on white) */
-  --navy: #0F1B2D;         /* harbour navy */
-  --navy-2: #182841;
+  --navy: #284392;         /* Convoy blue */
+  --navy-2: #213878;
   --steel: #4F5D70;        /* secondary text, 6.6:1 on white */
   --fog: #EEF1F4;          /* cool section background */
   --line: #D5DBE3;
   --white: #FFFFFF;
-  --on-navy-muted: #B9C3D1;
+  --on-navy-muted: #C9D3E8;
 
   --font: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --wide: 125;             /* matches the logo's extended letterforms */
@@ -141,9 +141,9 @@ a { color: inherit; }
 .vhero__shade {
   position: absolute; inset: 0; z-index: 2;
   background:
-    linear-gradient(90deg, rgba(15,27,45,.88) 0%, rgba(15,27,45,.7) 45%, rgba(15,27,45,.2) 85%),
-    linear-gradient(0deg, rgba(15,27,45,.6) 0%, rgba(15,27,45,0) 40%),
-    rgba(15,27,45,.2);
+    linear-gradient(90deg, rgba(27,45,99,.88) 0%, rgba(27,45,99,.7) 45%, rgba(27,45,99,.2) 85%),
+    linear-gradient(0deg, rgba(27,45,99,.6) 0%, rgba(27,45,99,0) 40%),
+    rgba(27,45,99,.2);
 }
 .vhero__panels { position: relative; z-index: 3; height: 100%; display: grid; align-items: center; transform: translateY(24px); }
 /* nudge the hero text slightly down and to the left of the content column */
@@ -343,7 +343,7 @@ a { color: inherit; }
 .form__status { min-height: 1.5em; color: var(--on-navy-muted); }
 
 /* Footer: brand bar, four columns, bottom bar */
-.site-footer { background: #0A1320; color: var(--on-navy-muted); padding-top: var(--space-5); font-size: 0.975rem; }
+.site-footer { background: #1B2D63; color: var(--on-navy-muted); padding-top: var(--space-5); font-size: 0.975rem; }
 .site-footer__top {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3);
   padding-bottom: var(--space-4); margin-bottom: var(--space-5); border-bottom: 1px solid rgba(255,255,255,.12);
