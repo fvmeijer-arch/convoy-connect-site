@@ -20,7 +20,7 @@ def Y(w):
     m = w/2; j = 56
     return w, (f'M0 0H{DG}L{m+DG/2} {j}H{m-DG/2}ZM{w-DG} 0H{w}L{m+DG/2} {j}H{m-DG/2}Z'
                f'M{m-DG/2} {j-2}H{m+DG/2}V100H{m-DG/2}Z'), 'fill'
-def E(w):  return w, f'M{h} -10V110M0 {h}H{w}M0 50H{w-10}M0 {100-h}H{w}'
+def E(w):  return w, f'M{h} -10V110M0 {h}H{w}M0 50H{w-32}M0 {100-h}H{w}'
 def T(w):  return w, f'M0 {h}H{w}M{w/2} -10V110'
 PLUS = 'plus'
 
