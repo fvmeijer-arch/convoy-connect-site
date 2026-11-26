@@ -143,7 +143,7 @@ a { color: inherit; }
 }
 
 /* Video hero: a tall section whose stage stays pinned while scrolling scrubs the footage */
-.vhero { position: relative; height: 340vh; background: var(--navy); }
+.vhero { position: relative; height: 300vh; background: var(--navy); }
 .vhero__stage {
   position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); height: calc(100svh - var(--header-h));
   overflow: hidden; color: var(--white);
