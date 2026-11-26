@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // ---------- Language (EN in the HTML, NL here) ----------
+  // ---------- Language (EN in the HTML, NL and FR here) ----------
   var NL = {
     'skip': 'Naar de inhoud',
     'nav.mission': 'Missie',
@@ -121,9 +121,129 @@
     'footer.kvk': 'KvK-nummer: volgt',
     'footer.anbi': 'ANBI-status: volgt'
   };
+  var FR = {
+    'skip': 'Aller au contenu',
+    'nav.mission': 'Mission',
+    'nav.how': 'Méthode',
+    'nav.pilot': 'Projet pilote',
+    'nav.why': 'Pourquoi ça marche',
+    'nav.cta': 'Participer',
+    'nav.donate': 'Faire un don',
+    'nav.menu': 'Menu',
+    'hero.bold': 'Guerre au Soudan',
+    'hero.intro': 'Plus de 33 millions de personnes ont besoin d’aide au Soudan et 13 millions ont fui leur foyer. Les centres de santé ferment, alors qu’aux Pays-Bas du matériel médical utilisable est mis au rebut. Ce ne sont pas les équipements qui manquent, mais le chemin pour les acheminer.',
+    'hero.lead': 'Convoy Connect met en relation le matériel médical excédentaire des Pays-Bas avec des organisations humanitaires reconnues, et organise et finance le transport entre les deux.',
+    'hero.cta1': 'Proposer du matériel ou de l’espace de fret',
+    'hero.cta2': 'Découvrir notre méthode',
+    'hero.cue': 'Faites défiler pour suivre le trajet',
+    'hero.s3': 'Votre don finance le fret, la douane et le stockage, pour que l’aide médicale arrive au Soudan.',
+    'hero.routeTitle': 'Du point A au point B.',
+    'route.aTitle': 'Pays-Bas',
+    'route.a': 'Point A : les surplus d’un hôpital, d’un fournisseur ou d’une entreprise portuaire néerlandais',
+    'route.midTitle': 'Fret, douane, stockage',
+    'route.mid': 'Organisés et payés par nous',
+    'route.b': 'Point B : la porte de fret d’un partenaire humanitaire reconnu',
+    'route.caption': 'Trajet des Pays-Bas à Port-Soudan. Convoy Connect organise le fret, la douane et le stockage entre les deux points.',
+    'feature.kicker': 'En préparation',
+    'feature.title': 'Notre premier envoi : du matériel médical excédentaire pour le Soudan',
+    'feature.body': 'La réponse humanitaire au Soudan est gravement sous-financée et le Sudan Health Cluster appelle activement les donateurs à contribuer. Nous commençons par un seul envoi pilote, soigneusement documenté.',
+    'feature.link': 'En savoir plus sur le projet pilote',
+    'mission.title': 'Le problème, ce ne sont pas les biens, mais la logistique.',
+    'mission.p1': 'Les hôpitaux, grossistes et entreprises portuaires européens mettent régulièrement au rebut des stocks encore utilisables. Dans le même temps, les organisations humanitaires qui ont un besoin concret n’ont pas les moyens de payer le transport, souvent plus coûteux que les biens eux-mêmes.',
+    'mission.p2': 'Capacité de fret, dédouanement, coordination avec le bon destinataire et financement du voyage : c’est à ce maillon que l’aide se bloque. C’est le seul maillon dont nous nous occupons.',
+    'who.title': 'Un seul interlocuteur pour les deux côtés',
+    'who.intro': 'Les entreprises qui ont des surplus envoient rarement elles-mêmes un chargement vers une zone de crise : cela demande du temps, de l’argent et une connaissance des règles de sanctions et d’exportation. Les organisations humanitaires, elles, ne peuvent souvent pas payer le transport. Nous prenons en charge précisément ce maillon intermédiaire.',
+    'who.tab1': 'Hôpitaux et fournisseurs',
+    'who.tab2': 'Entreprises portuaires et logistiques',
+    'who.tab3': 'Organisations humanitaires',
+    'who.tab4': 'Donateurs',
+    'who.p1Title': 'Vous disposez de matériel médical utilisable qui serait sinon mis au rebut',
+    'who.p1a': 'Nous recensons ce que vous avez et vérifions que son exportation est autorisée',
+    'who.p1b': 'Nous le relions à un besoin vérifié d’un canal reconnu',
+    'who.p1c': 'Nous organisons l’enlèvement, les documents et le fret, sans frais pour vous',
+    'who.p2Title': 'Vous disposez d’espace de fret, de stockage ou de capacité douanière inutilisés',
+    'who.p2a': 'Contribuez en nature avec de l’espace de fret, du stockage ou du dédouanement, plutôt que sur facture',
+    'who.p2b': 'Parrainez les frais de transport d’un envoi concret et documenté',
+    'who.p2c': 'Recevez un rapport d’arrivée confirmé à partager avec vos parties prenantes',
+    'who.p3Title': 'Vous êtes une organisation reconnue avec un besoin concret',
+    'who.p3a': 'Indiquez le matériel dont vous avez besoin ; l’offre suit la demande réelle, et non l’inverse',
+    'who.p3b': 'Nous prenons en charge le fret, les documents douaniers et le stockage jusqu’à votre porte de fret',
+    'who.p3c': 'Vous restez responsable de la distribution aux bénéficiaires',
+    'who.p4Title': 'Vous voulez que votre don achemine une aide qui existe déjà',
+    'who.p4a': 'Votre don finance uniquement le transport et la coordination, jamais l’achat de biens',
+    'who.p4b': 'Chaque envoi est documenté, de la prise en charge à l’arrivée confirmée',
+    'who.p4c': 'Nous allons demander le statut ANBI néerlandais, afin que les dons deviennent fiscalement déductibles',
+    'how.title': 'Cinq étapes, pour chaque envoi',
+    'how.intro': 'Nous ne devenons jamais propriétaires des biens et n’assumons pas la responsabilité de la livraison finale. Nous organisons et finançons le transport du point A au point B, et documentons chaque étape.',
+    'how.s1t': 'Prise en charge',
+    'how.s1': 'Une entreprise signale un surplus de stock ou une capacité disponible.',
+    'how.s2t': 'Vérification',
+    'how.s2': 'Nous vérifions que les biens sont autorisés, non soumis à des sanctions et non à double usage, et que le transport est réalisable.',
+    'how.s3t': 'Mise en relation',
+    'how.s3': 'Nous relions l’offre à un besoin actuel et vérifié d’un canal reconnu.',
+    'how.s4t': 'Transport et financement',
+    'how.s4': 'L’espace de fret, les documents douaniers et les coûts sont organisés, couverts par des dons ou du parrainage.',
+    'how.s5t': 'Confirmation',
+    'how.s5': 'L’arrivée chez le partenaire reconnu est confirmée et consignée, ce qui permet de rendre des comptes aux donateurs.',
+    'bound.title': 'Spécialistes du maillon manquant',
+    'bound.intro': 'Nous nous concentrons sur la logistique entre l’offre et la demande, pour que l’aide médicale arrive là où elle est le plus nécessaire.',
+    'bound.doTitle': 'Ce que nous faisons',
+    'bound.do1': 'Recenser les surplus de stock et les capacités disponibles des entreprises néerlandaises',
+    'bound.do2': 'Les relier aux besoins vérifiés d’organisations humanitaires reconnues',
+    'bound.do3': 'Financer le fret, la douane et le stockage grâce aux dons et au parrainage',
+    'bound.do4': 'Coordonner et documenter les deux côtés de chaque envoi',
+    'bound.dontTitle': 'Ce que nous ne faisons pas',
+    'bound.dont1': 'Collecter des fonds pour la nourriture, les médicaments ou les biens eux-mêmes',
+    'bound.dont2': 'Vérifier nous-mêmes les destinataires finaux ; nous travaillons uniquement avec des mécanismes reconnus',
+    'bound.dont3': 'Livrer directement aux bénéficiaires ; notre rôle s’arrête à la porte de fret d’un partenaire',
+    'pilot.title': 'Pourquoi nous commençons par un seul projet pilote',
+    'pilot.p1': 'Les organisations humanitaires reçoivent beaucoup d’offres bien intentionnées qui ne correspondent pas aux besoins réels. Nous faisons l’inverse : nous partons d’un besoin vérifié d’une organisation humanitaire reconnue, n’envoyons que du matériel testé et dont le bon fonctionnement est prouvé, contrôlons chaque envoi au préalable au regard des sanctions et des règles d’exportation, et ne partons que lorsque le transport est payé.',
+    'pilot.p2': 'Avec un seul projet pilote soigneusement documenté, nous voulons montrer que cette approche fonctionne. Nous suivons l’envoi de l’enlèvement à l’arrivée et consignons chaque étape : les contrôles, les coûts et les délais. Ce n’est qu’une fois l’arrivée du premier envoi prouvée que nous passerons à plus grande échelle.',
+    'pilot.critTitle': 'C’est une réussite si',
+    'pilot.c1': 'L’envoi arrive, de façon prouvée, chez le destinataire reconnu prévu',
+    'pilot.c2': 'Le processus est documenté et reproductible : liste de contrôle, contacts, délais',
+    'pilot.c3': 'Au moins un partenaire portuaire souhaite soutenir un prochain envoi',
+    'pilot.note': 'Nous ne lançons jamais un envoi sans que les frais de transport soient couverts à l’avance.',
+    'why.title': 'Le modèle de mise en relation fonctionne déjà ailleurs',
+    'why.intro': 'Nous sommes nouveaux, le modèle ne l’est pas. Deux organisations internationales montrent ce qu’il permet à grande échelle.',
+    'why.airlink': 'Réunit la capacité de fret aérien disponible et les surplus de stock au profit d’organisations humanitaires vérifiées, sans flotte propre. En 2024, 97,9 % de ses recettes de 13,1 millions de dollars provenaient de contributions.',
+    'why.medshare': 'Redistribue des fournitures médicales excédentaires à des établissements de santé dans 117 pays. Les destinataires commandent exactement ce dont ils ont besoin, pour que le matériel donné ne reste pas inutilisé.',
+    'why.usTitle': 'Convoy Connect',
+    'why.us': 'Apporte ce modèle au port de Rotterdam, en commençant par un envoi bien documenté vers le Soudan.',
+    'contact.title': 'Du matériel, de l’espace de fret ou des questions ?',
+    'contact.intro': 'Dites-nous ce que vous pouvez proposer ou ce dont vous avez besoin. Nous répondons sous quelques jours ouvrables.',
+    'form.name': 'Nom',
+    'form.nameErr': 'Indiquez votre nom, pour que nous sachions à qui répondre.',
+    'form.org': 'Organisation',
+    'form.optional': '(facultatif)',
+    'form.email': 'E-mail',
+    'form.emailErr': 'Indiquez une adresse e-mail.',
+    'form.type': 'Je souhaite',
+    'form.t1': 'Proposer du matériel médical',
+    'form.t2': 'Proposer de l’espace de fret, du stockage ou du dédouanement',
+    'form.t3': 'Signaler un besoin en tant qu’organisation humanitaire',
+    'form.t4': 'Faire un don ou parrainer un envoi',
+    'form.t5': 'Poser une autre question',
+    'form.msg': 'Message',
+    'form.msgErr': 'Décrivez brièvement ce que vous pouvez proposer ou ce dont vous avez besoin.',
+    'form.submit': 'Envoyer le message',
+    'footer.about': 'La Stichting Convoy Connect est une fondation en cours de création, basée à Rotterdam, qui fait le lien logistique entre le matériel médical excédentaire et des organisations humanitaires accréditées.',
+    'footer.aboutTitle': 'À propos',
+    'footer.tagline': 'Ce qui est superflu ici sauve des vies là-bas.',
+    'footer.nav': 'Navigation',
+    'footer.details': 'Informations sur la fondation',
+    'footer.contact': 'Contact',
+    'footer.nl': 'Pays-Bas',
+    'footer.disclaimer': 'Avertissement',
+    'footer.cookies': 'Politique de cookies',
+    'footer.privacy': 'Déclaration de confidentialité',
+    'footer.kvk': 'Numéro KvK (Chambre de commerce) : à venir',
+    'footer.anbi': 'Statut ANBI : à venir'
+  };
   var STATUS = {
     en: { opening: 'Your email app is opening with the message ready to send.', invalid: 'Some fields need attention. Check the messages below each field.' },
-    nl: { opening: 'Uw e-mailprogramma opent met het bericht klaar om te versturen.', invalid: 'Enkele velden hebben aandacht nodig. Bekijk de meldingen onder de velden.' }
+    nl: { opening: 'Uw e-mailprogramma opent met het bericht klaar om te versturen.', invalid: 'Enkele velden hebben aandacht nodig. Bekijk de meldingen onder de velden.' },
+    fr: { opening: 'Votre messagerie s’ouvre avec le message prêt à être envoyé.', invalid: 'Certains champs demandent votre attention. Consultez les messages sous chaque champ.' }
   };
 
   var nodes = document.querySelectorAll('[data-i18n]');
@@ -133,10 +253,10 @@
 
   function setLang(lang) {
     current = lang;
-    var dict = lang === 'nl' ? NL : EN;
+    var dict = lang === 'nl' ? NL : lang === 'fr' ? FR : EN;
     nodes.forEach(function (el) {
       var key = el.dataset.i18n;
-      if (dict[key] != null) el[lang === 'nl' ? 'textContent' : 'innerHTML'] = dict[key];
+      if (dict[key] != null) el[lang === 'en' ? 'innerHTML' : 'textContent'] = dict[key];
     });
     document.documentElement.lang = lang;
     document.dispatchEvent(new Event('cc:lang'));
@@ -167,7 +287,9 @@
   });
   var saved = null;
   try { saved = localStorage.getItem('cc-lang'); } catch (e) {}
-  if (saved === 'nl' || (!saved && /^nl\b/i.test(navigator.language || ''))) setLang('nl');
+  var browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+  var startLang = saved || browserLang;
+  if (startLang === 'nl' || startLang === 'fr') setLang(startLang);
 
   // ---------- Header: scrolled state + mobile menu ----------
   var header = document.querySelector('.site-header');
@@ -388,7 +510,7 @@
   function formatFigure(el, value) {
     var dec = parseInt(el.dataset.decimals || '0', 10);
     var text = value.toFixed(dec);
-    if (document.documentElement.lang === 'nl') text = text.replace('.', ',');
+    if (document.documentElement.lang !== 'en') text = text.replace('.', ',');
     el.textContent = text + (el.dataset.suffix || '');
   }
   function countUp(el) {
