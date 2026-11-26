@@ -1,7 +1,7 @@
 # Generates the Convoy Connect logo set as SVG.
 import sys, os
 OUT = sys.argv[1]
-NAVY, RED, WHITE = '#284392', '#E90C0F', '#FFFFFF'
+NAVY, RED, WHITE = '#284392', '#BD3029', '#FFFFFF'
 S = 28          # letter stroke
 h = S/2         # centerline inset
 G = 14          # letter gap
