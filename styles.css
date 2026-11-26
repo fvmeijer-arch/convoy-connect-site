@@ -75,6 +75,7 @@ a { color: inherit; }
   touch-action: manipulation;
 }
 .btn--red { background: var(--red-deep); color: var(--white); }
+.btn__icon { flex: none; margin-right: 10px; }
 .btn--red:hover { background: var(--navy); }
 .section--navy .btn--red:hover { background: var(--white); color: var(--navy); }
 .btn--ghost { border-color: var(--navy); color: var(--navy); background: transparent; }
