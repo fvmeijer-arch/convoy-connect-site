@@ -24,8 +24,11 @@ def E(w):  return w, f'M{h} -10V110M0 {h}H{w}M0 50H{w-10}M0 {100-h}H{w}'
 def T(w):  return w, f'M0 {h}H{w}M{w/2} -10V110'
 PLUS = 'plus'
 
-line1 = [C(118), O(118), N(104), V(112), O(118), Y(112)]
-line2 = [C(118), O(118), N(104), N(104), E(96), C(118), T(100)]
+# Every letter gets the same width, so the two lines form one grid:
+# each letter of CONVOY sits exactly above the matching letter of CONNECT.
+CELL = 118
+line1 = [C(CELL), O(CELL), N(CELL), V(CELL), O(CELL), Y(CELL)]
+line2 = [C(CELL), O(CELL), N(CELL), N(CELL), E(CELL), C(CELL), T(CELL)]
 
 def wordmark(ink, accent):
     parts = []
