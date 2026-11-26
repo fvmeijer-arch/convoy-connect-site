@@ -2,8 +2,8 @@
 :root {
   --red: #BD3029;          /* logo red */
   --red-deep: #BD3029;     /* same red: 5.8:1 with white, so safe for text and buttons */
-  --navy: #284392;         /* Convoy blue */
-  --navy-2: #213878;
+  --navy: #223A7E;         /* Convoy blue */
+  --navy-2: #1C3067;
   --steel: #4F5D70;        /* secondary text, 6.6:1 on white */
   --fog: #EEF1F4;          /* cool section background */
   --line: #D5DBE3;
@@ -96,7 +96,7 @@ a { color: inherit; }
 .lang-menu__list {
   position: absolute; top: calc(100% + 6px); left: 0; z-index: 50; min-width: 168px; padding: 6px;
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
-  box-shadow: 0 10px 28px rgba(27,45,99,.14);
+  box-shadow: 0 10px 28px rgba(23,39,85,.14);
 }
 .lang-menu__list[hidden] { display: none; }
 .lang__btn {
@@ -154,9 +154,9 @@ a { color: inherit; }
 .vhero__shade {
   position: absolute; inset: 0; z-index: 2;
   background:
-    linear-gradient(90deg, rgba(27,45,99,.88) 0%, rgba(27,45,99,.7) 45%, rgba(27,45,99,.2) 85%),
-    linear-gradient(0deg, rgba(27,45,99,.6) 0%, rgba(27,45,99,0) 40%),
-    rgba(27,45,99,.2);
+    linear-gradient(90deg, rgba(23,39,85,.88) 0%, rgba(23,39,85,.7) 45%, rgba(23,39,85,.2) 85%),
+    linear-gradient(0deg, rgba(23,39,85,.6) 0%, rgba(23,39,85,0) 40%),
+    rgba(23,39,85,.2);
 }
 .vhero__panels { position: relative; z-index: 3; height: 100%; display: grid; align-items: center; transform: translateY(24px); }
 /* nudge the hero text slightly down and to the left of the content column */
@@ -356,7 +356,7 @@ a { color: inherit; }
 .form__status { min-height: 1.5em; color: var(--on-navy-muted); }
 
 /* Footer: brand bar, four columns, bottom bar */
-.site-footer { background: #1B2D63; color: var(--on-navy-muted); padding-top: var(--space-5); font-size: 0.975rem; }
+.site-footer { background: #172755; color: var(--on-navy-muted); padding-top: var(--space-5); font-size: 0.975rem; }
 .site-footer__top {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3);
   padding-bottom: var(--space-4); margin-bottom: var(--space-5); border-bottom: 1px solid rgba(255,255,255,.12);
