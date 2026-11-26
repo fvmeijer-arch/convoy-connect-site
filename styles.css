@@ -30,6 +30,7 @@
 
   --radius: 4px;
   --header-h: 76px;
+  --header-h-top: 100px;
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
 
@@ -82,6 +83,7 @@ a { color: inherit; }
 .btn--ghost:hover { background: var(--navy); color: var(--white); }
 
 /* Header bars run wider than the content column: logo further left, menu further right */
+@media (prefers-reduced-motion: reduce) { .site-header__inner, .brand img { transition: none; } }
 .site-header .container { max-width: 1440px; padding-inline: clamp(20px, 3.2vw, 48px); }
 
 /* Language dropdown, next to the logo */
@@ -115,8 +117,15 @@ a { color: inherit; }
   transition: border-color .2s var(--ease);
 }
 .site-header.is-scrolled { border-bottom-color: var(--line); }
-.site-header__inner { display: flex; align-items: center; gap: var(--space-3); height: var(--header-h); }
-.brand img { height: 40px; width: auto; }
+/* On the home page the header is fixed, with room reserved for its tall state,
+   so shrinking it never moves the page (which would bounce the scroll back to the top). */
+#top.site-header { position: fixed; left: 0; right: 0; }
+body:has(> #top) { padding-top: var(--header-h-top); }
+/* At the top of the page the header is a bit taller; once you scroll it shrinks to --header-h */
+.site-header__inner { display: flex; align-items: center; gap: var(--space-3); height: var(--header-h-top); transition: height .25s var(--ease); }
+.brand img { height: 50px; width: auto; transition: height .25s var(--ease); }
+.site-header.is-scrolled .site-header__inner { height: var(--header-h); }
+.site-header.is-scrolled .brand img { height: 40px; }
 .nav { margin-left: auto; }
 .nav__list { display: flex; gap: var(--space-3); }
 .nav__list a {
@@ -140,7 +149,8 @@ a { color: inherit; }
   .nav.is-open { display: block; }
   .nav__list { flex-direction: column; gap: 0; padding: var(--space-1) 20px var(--space-3); }
   .nav__list a { display: block; padding: 14px 0; border-bottom: 1px solid var(--fog); background: none; }
-  .brand img { height: 38px; }
+  .brand img { height: 46px; }
+  .site-header.is-scrolled .brand img { height: 38px; }
 }
 
 /* Video hero: a tall section whose stage stays pinned while scrolling scrubs the footage */
@@ -389,6 +399,8 @@ a { color: inherit; }
 /* Legal pages (disclaimer, cookies, privacy) */
 .legal-header { border-bottom: 1px solid var(--line); }
 .legal-header .site-header__inner { justify-content: space-between; }
+.legal-header .site-header__inner { height: var(--header-h); }
+.legal-header .brand img { height: 40px; }
 .legal-back { font-weight: 600; text-underline-offset: 4px; white-space: nowrap; }
 .legal { padding-block: var(--space-6); }
 .legal .container { max-width: 760px; }

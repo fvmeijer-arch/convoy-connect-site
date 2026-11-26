@@ -461,7 +461,8 @@
     }
 
     var stage = hero.querySelector('.vhero__stage');
-    var headerH = document.querySelector('.site-header').offsetHeight;
+    // the header's compact (scrolled) height, which is where the stage pins
+    var headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 76;
 
     // 0 when the hero reaches the header, 1 when the pinned stage is about to scroll away
     function progress() {
