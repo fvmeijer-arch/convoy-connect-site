@@ -53,7 +53,7 @@
     'who.p4Title': 'U wilt dat uw gift hulp verplaatst die al bestaat',
     'who.p4a': 'Uw donatie betaalt alleen transport en coördinatie, nooit de aankoop van goederen',
     'who.p4b': 'Elke zending wordt gedocumenteerd, van intake tot bevestigde aankomst',
-    'who.p4c': 'We vragen de ANBI-status aan, zodat giften fiscaal aftrekbaar worden',
+    'who.p4c': 'We gaan de ANBI-status aanvragen, zodat giften fiscaal aftrekbaar worden',
     'how.title': 'Vijf stappen, bij elke zending',
     'how.intro': 'We worden nooit eigenaar van de goederen en nemen geen verantwoordelijkheid voor de uiteindelijke aflevering. We regelen en financieren het transport van punt A naar punt B, en leggen elke stap vast.',
     'how.s1t': 'Intake',
@@ -119,7 +119,7 @@
     'footer.cookies': 'Cookiebeleid',
     'footer.privacy': 'Privacyverklaring',
     'footer.kvk': 'KvK-nummer: volgt',
-    'footer.anbi': 'ANBI-status: aanvraag loopt'
+    'footer.anbi': 'ANBI-status: volgt'
   };
   var STATUS = {
     en: { opening: 'Your email app is opening with the message ready to send.', invalid: 'Some fields need attention. Check the messages below each field.' },
