@@ -11,26 +11,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
-
-  <div class="utility">
-    <div class="container utility__inner">
-      <p class="utility__note" data-i18n="utility.note">Foundation in formation, based in Rotterdam</p>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" class="lang__btn" data-lang="nl" aria-pressed="false">NL</button>
-      </div>
-    </div>
-  </div>
 
   <header class="site-header" id="top">
     <div class="container site-header__inner">
       <a href="#top" class="brand" aria-label="Convoy Connect, back to top">
         <img src="logo/logo.svg" alt="Convoy Connect" width="1262" height="224">
       </a>
+      <div class="lang-menu">
+        <button type="button" class="lang-menu__btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list">
+          <span class="sr-only">Language: </span><span class="lang-menu__current">EN</span>
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </button>
+        <ul class="lang-menu__list" id="lang-list" hidden>
+          <li><button type="button" class="lang__btn" data-lang="en" lang="en" aria-pressed="true">English</button></li>
+          <li><button type="button" class="lang__btn" data-lang="nl" lang="nl" aria-pressed="false">Nederlands</button></li>
+        </ul>
+      </div>
       <nav class="nav" id="site-nav" aria-label="Main">
         <ul class="nav__list">
           <li><a href="#mission" data-i18n="nav.mission">Mission</a></li>
@@ -401,6 +401,6 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=3"></script>
 </body>
 </html>

@@ -81,18 +81,31 @@ a { color: inherit; }
 .btn--ghost:hover { background: var(--navy); color: var(--white); }
 
 /* Header bars run wider than the content column: logo further left, menu further right */
-.utility .container, .site-header .container { max-width: 1440px; padding-inline: clamp(20px, 3.2vw, 48px); }
+.site-header .container { max-width: 1440px; padding-inline: clamp(20px, 3.2vw, 48px); }
 
-/* Utility bar */
-.utility { border-bottom: 1px solid var(--line); font-size: var(--step--1); color: var(--steel); }
-.utility__inner { display: flex; justify-content: space-between; align-items: center; min-height: 40px; gap: var(--space-2); }
-.lang { display: flex; gap: 2px; }
-.lang__btn {
-  font: inherit; font-weight: 700; color: var(--steel); background: none; border: 0;
-  min-width: 44px; min-height: 36px; cursor: pointer; border-radius: var(--radius);
+/* Language dropdown, next to the logo */
+.lang-menu { position: relative; }
+.lang-menu__btn {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px;
+  font: inherit; font-size: 0.975rem; font-weight: 600; color: var(--steel);
+  background: none; border: 0; border-radius: var(--radius); cursor: pointer;
 }
-.lang__btn[aria-pressed="true"] { color: var(--navy); background: var(--fog); }
-.lang__btn:hover { color: var(--red-deep); }
+.lang-menu__btn:hover, .lang-menu__btn[aria-expanded="true"] { color: var(--navy); }
+.lang-menu__btn svg { transition: transform .2s var(--ease); }
+.lang-menu__btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.lang-menu__list {
+  position: absolute; top: calc(100% + 6px); left: 0; z-index: 50; min-width: 168px; padding: 6px;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(27,45,99,.14);
+}
+.lang-menu__list[hidden] { display: none; }
+.lang__btn {
+  display: block; width: 100%; text-align: left; padding: 10px 12px; min-height: 44px;
+  font: inherit; font-size: 0.975rem; font-weight: 600; color: var(--navy);
+  background: none; border: 0; border-radius: var(--radius); cursor: pointer;
+}
+.lang__btn:hover { background: var(--fog); }
+.lang__btn[aria-pressed="true"] { color: var(--red-deep); }
 
 /* Header */
 .site-header {

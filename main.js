@@ -4,7 +4,6 @@
   // ---------- Language (EN in the HTML, NL here) ----------
   var NL = {
     'skip': 'Naar de inhoud',
-    'utility.note': 'Stichting in oprichting, gevestigd in Rotterdam',
     'nav.mission': 'Missie',
     'nav.how': 'Werkwijze',
     'nav.pilot': 'Pilot',
@@ -144,10 +143,27 @@
     document.querySelectorAll('.lang__btn').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
     });
+    var cur = document.querySelector('.lang-menu__current');
+    if (cur) cur.textContent = lang.toUpperCase();
     try { localStorage.setItem('cc-lang', lang); } catch (e) {}
   }
+
+  // Language dropdown
+  var langBtn = document.querySelector('.lang-menu__btn');
+  var langList = document.getElementById('lang-list');
+  function setLangMenu(open) {
+    langList.hidden = !open;
+    langBtn.setAttribute('aria-expanded', String(open));
+  }
+  langBtn.addEventListener('click', function () { setLangMenu(langList.hidden); });
+  document.addEventListener('click', function (e) {
+    if (!langList.hidden && !e.target.closest('.lang-menu')) setLangMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !langList.hidden) { setLangMenu(false); langBtn.focus(); }
+  });
   document.querySelectorAll('.lang__btn').forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.dataset.lang); });
+    b.addEventListener('click', function () { setLang(b.dataset.lang); setLangMenu(false); langBtn.focus(); });
   });
   var saved = null;
   try { saved = localStorage.getItem('cc-lang'); } catch (e) {}
