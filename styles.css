@@ -1,7 +1,7 @@
 /* Convoy Connect: tokens */
 :root {
-  --red: #E90C0F;          /* logo red */
-  --red-deep: #C40A0D;     /* hover / text-on-white red (AA on white) */
+  --red: #BD3029;          /* logo red */
+  --red-deep: #BD3029;     /* same red: 5.8:1 with white, so safe for text and buttons */
   --navy: #284392;         /* Convoy blue */
   --navy-2: #213878;
   --steel: #4F5D70;        /* secondary text, 6.6:1 on white */
@@ -350,8 +350,8 @@ a { color: inherit; }
 }
 .field textarea { resize: vertical; }
 .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--red); outline-offset: 1px; }
-.field [aria-invalid="true"] { border-color: #FF6B6E; }
-.field__error { color: #FFB3B4; font-size: 0.95rem; }
+.field [aria-invalid="true"] { border-color: #F2867C; }
+.field__error { color: #FFC4BE; font-size: 0.95rem; }
 .form .btn { justify-self: start; }
 .form__status { min-height: 1.5em; color: var(--on-navy-muted); }
 
