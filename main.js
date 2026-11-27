@@ -241,9 +241,9 @@
     'footer.anbi': 'Statut ANBI : à venir'
   };
   var STATUS = {
-    en: { opening: 'Your email app is opening with the message ready to send.', invalid: 'Some fields need attention. Check the messages below each field.' },
-    nl: { opening: 'Uw e-mailprogramma opent met het bericht klaar om te versturen.', invalid: 'Enkele velden hebben aandacht nodig. Bekijk de meldingen onder de velden.' },
-    fr: { opening: 'Votre messagerie s’ouvre avec le message prêt à être envoyé.', invalid: 'Certains champs demandent votre attention. Consultez les messages sous chaque champ.' }
+    en: { sending: 'Sending…', sent: 'Thank you, your message has been sent. We\u2019ll get back to you within a few working days.', failed: 'Your message could not be sent. Please email us at info@convoyconnect.nl.', invalid: 'Some fields need attention. Check the messages below each field.' },
+    nl: { sending: 'Bezig met versturen…', sent: 'Dank u wel, uw bericht is verstuurd. We reageren binnen enkele werkdagen.', failed: 'Uw bericht kon niet worden verstuurd. Mail ons gerust via info@convoyconnect.nl.', invalid: 'Enkele velden hebben aandacht nodig. Bekijk de meldingen onder de velden.' },
+    fr: { sending: 'Envoi en cours…', sent: 'Merci, votre message a bien été envoyé. Nous vous répondrons sous quelques jours ouvrables.', failed: 'Votre message n\u2019a pas pu être envoyé. Écrivez-nous à info@convoyconnect.nl.', invalid: 'Certains champs demandent votre attention. Consultez les messages sous chaque champ.' }
   };
 
   var nodes = document.querySelectorAll('[data-i18n]');
@@ -345,7 +345,7 @@
     });
   });
 
-  // ---------- Contact form: validate, then open a pre-filled email ----------
+  // ---------- Contact form: validate, then send via FormSubmit to info@convoyconnect.nl ----------
   // Buttons like "Donate" jump to the form with the matching request type chosen
   document.querySelectorAll('[data-form-type]').forEach(function (link) {
     link.addEventListener('click', function () {
@@ -380,10 +380,34 @@
       return;
     }
     var f = form.elements;
+    var button = form.querySelector('button[type="submit"]');
     var subject = f.type.value + ' | ' + f.name.value + (f.organisation.value ? ' (' + f.organisation.value + ')' : '');
-    var body = f.message.value + '\n\n' + f.name.value + '\n' + (f.organisation.value ? f.organisation.value + '\n' : '') + f.email.value;
-    status.textContent = STATUS[current].opening;
-    window.location.href = 'mailto:info@convoyconnect.nl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    button.disabled = true;
+    status.textContent = STATUS[current].sending;
+    fetch('https://formsubmit.co/ajax/info@convoyconnect.nl', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Website: ' + subject,
+        _template: 'table',
+        _honey: f._honey.value,
+        Naam: f.name.value.trim(),
+        Organisatie: f.organisation.value.trim(),
+        email: f.email.value.trim(),
+        Onderwerp: f.type.value,
+        Bericht: f.message.value.trim(),
+        Taal: current
+      })
+    }).then(function (r) {
+      return r.json().then(function (d) { if (!r.ok || String(d.success) !== 'true') throw new Error(d.message); });
+    }).then(function () {
+      status.textContent = STATUS[current].sent;
+      form.reset();
+    }).catch(function () {
+      status.textContent = STATUS[current].failed;
+    }).then(function () {
+      button.disabled = false;
+    });
   });
 
   // ---------- Video hero: scroll position picks the frame ----------

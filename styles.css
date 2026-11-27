@@ -365,6 +365,8 @@ body:has(> #top) { padding-top: var(--header-h-top); }
 .field__error { color: #FFC4BE; font-size: 0.95rem; }
 .form .btn { justify-self: start; }
 .form__status { min-height: 1.5em; color: var(--on-navy-muted); }
+.form__honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form button[disabled] { opacity: .6; cursor: progress; }
 
 /* Footer: brand bar, four columns, bottom bar */
 .site-footer { background: #172755; color: var(--on-navy-muted); padding-top: var(--space-5); font-size: 0.975rem; }
