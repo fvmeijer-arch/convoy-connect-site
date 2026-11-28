@@ -380,33 +380,36 @@
       return;
     }
     var f = form.elements;
-    var button = form.querySelector('button[type="submit"]');
     var subject = f.type.value + ' | ' + f.name.value + (f.organisation.value ? ' (' + f.organisation.value + ')' : '');
-    button.disabled = true;
-    status.textContent = STATUS[current].sending;
+    // Plain form encoding keeps this a "simple" request (no CORS preflight round trip)
+    var data = new URLSearchParams({
+      _subject: 'Website: ' + subject,
+      _template: 'table',
+      _honey: f._honey.value,
+      Naam: f.name.value.trim(),
+      Organisatie: f.organisation.value.trim(),
+      email: f.email.value.trim(),
+      Onderwerp: f.type.value,
+      Bericht: f.message.value.trim(),
+      Taal: current
+    });
+    // Keep what was typed so it can be put back if sending fails
+    var saved = { name: f.name.value, organisation: f.organisation.value, email: f.email.value, type: f.type.selectedIndex, message: f.message.value };
+    // FormSubmit only answers once the email has gone out, which takes several seconds.
+    // Thank the visitor straight away; keepalive lets the request finish even if they leave the page.
+    status.textContent = STATUS[current].sent;
+    form.reset();
     fetch('https://formsubmit.co/ajax/info@convoyconnect.nl', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        _subject: 'Website: ' + subject,
-        _template: 'table',
-        _honey: f._honey.value,
-        Naam: f.name.value.trim(),
-        Organisatie: f.organisation.value.trim(),
-        email: f.email.value.trim(),
-        Onderwerp: f.type.value,
-        Bericht: f.message.value.trim(),
-        Taal: current
-      })
+      headers: { 'Accept': 'application/json' },
+      body: data,
+      keepalive: true
     }).then(function (r) {
       return r.json().then(function (d) { if (!r.ok || String(d.success) !== 'true') throw new Error(d.message); });
-    }).then(function () {
-      status.textContent = STATUS[current].sent;
-      form.reset();
     }).catch(function () {
+      f.name.value = saved.name; f.organisation.value = saved.organisation; f.email.value = saved.email;
+      f.type.selectedIndex = saved.type; f.message.value = saved.message;
       status.textContent = STATUS[current].failed;
-    }).then(function () {
-      button.disabled = false;
     });
   });
 
