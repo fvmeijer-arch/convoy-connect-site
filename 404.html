@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Convoy Connect</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg?v=2">
+  <link rel="icon" type="image/png" href="/logo/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=9">
+  <style>
+    .notfound { min-height: calc(100vh - var(--header-h) - 160px); display: flex; align-items: center; }
+    .notfound__code { font-size: var(--step-1); font-weight: 750; letter-spacing: .12em; color: var(--red, #BD3029); margin-bottom: var(--space-2); }
+    .notfound p { margin-top: var(--space-3); max-width: 34em; }
+    .notfound__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-5); }
+    .notfound .btn--red, .notfound .btn--red:hover { color: var(--white); text-decoration: none; }
+    .notfound__actions a:not(.btn) { font-weight: 600; text-underline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-t="skip">Skip to content</a>
+  <header class="site-header legal-header">
+    <div class="container site-header__inner">
+      <a href="/" class="brand" aria-label="Convoy Connect">
+        <img src="/logo/logo.svg" alt="Convoy Connect" width="1326" height="224">
+      </a>
+      <a href="/" class="legal-back" data-t="back">Back to the homepage</a>
+    </div>
+  </header>
+
+  <main id="main" class="legal notfound">
+    <div class="container">
+      <p class="notfound__code">404</p>
+      <h1 data-t="title">This page doesn’t exist</h1>
+      <p data-t="text">The link may be wrong, or the page has moved. From the homepage you can find everything about our work, or get in touch with us directly.</p>
+      <div class="notfound__actions">
+        <a href="/" class="btn btn--red" data-t="home">Go to the homepage</a>
+        <a href="/#contact" data-t="contact">Contact us</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 Stichting Convoy Connect</p>
+      <ul class="site-footer__legal">
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+        <li><a href="/cookiebeleid.html" data-t="cookies">Cookie policy</a></li>
+        <li><a href="/privacyverklaring.html" data-t="privacy">Privacy statement</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var T = {
+        nl: { doc: 'Pagina niet gevonden | Convoy Connect', skip: 'Naar de inhoud', back: 'Naar de homepage', title: 'Deze pagina bestaat niet', text: 'Misschien klopt de link niet, of is de pagina verplaatst. Via de homepage vindt u alles over ons werk, of neem direct contact met ons op.', home: 'Naar de homepage', contact: 'Neem contact op', cookies: 'Cookiebeleid', privacy: 'Privacyverklaring' },
+        fr: { doc: 'Page introuvable | Convoy Connect', skip: 'Aller au contenu', back: 'Retour à l’accueil', title: 'Cette page n’existe pas', text: 'Le lien est peut-être erroné, ou la page a été déplacée. Depuis la page d’accueil, vous trouverez tout sur notre travail, ou vous pouvez nous contacter directement.', home: 'Aller à l’accueil', contact: 'Nous contacter', cookies: 'Politique de cookies', privacy: 'Déclaration de confidentialité' }
+      };
+      var lang = null;
+      try { lang = localStorage.getItem('cc-lang'); } catch (e) {}
+      if (!lang) lang = (navigator.language || '').slice(0, 2).toLowerCase();
+      var t = T[lang];
+      if (!t) return;
+      document.documentElement.lang = lang;
+      document.title = t.doc;
+      document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t[el.dataset.t]; });
+    })();
+  </script>
+</body>
+</html>
