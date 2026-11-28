@@ -1,6 +1,6 @@
 import os, sys
 OUT = sys.argv[1]
-DATE = '4 november 2026'
+DATES = {'disclaimer.html': '4 november 2026', 'cookiebeleid.html': '28 november 2026', 'privacyverklaring.html': '28 november 2026'}
 DRAFT = ('<p class="legal__draft"><strong>Concept.</strong> Deze tekst is een eerste opzet en wordt nog '
          'gecontroleerd voordat de stichting officieel van start gaat.</p>')
 
@@ -37,7 +37,7 @@ def page(slug, title, desc, body):
   <main id="main" class="legal">
     <div class="container">
       <h1>{title}</h1>
-      <p class="legal__meta">Laatst bijgewerkt: {DATE}</p>
+      <p class="legal__meta">Laatst bijgewerkt: {DATES[slug]}</p>
       {DRAFT}
 {body}
     </div>
@@ -86,7 +86,7 @@ cookies = f'''
       <p>Deze website plaatst geen cookies. We gebruiken geen analyse-, advertentie- of trackingcookies en volgen je niet over andere websites. Daarom vragen we je ook niet om toestemming via een cookiebanner.</p>
 
       <h2>Wat we wel in je browser bewaren</h2>
-      <p>Als je kiest tussen Nederlands en Engels, onthoudt je browser die keuze, zodat de website de volgende keer in dezelfde taal opent. Die keuze staat alleen op je eigen apparaat (in de lokale opslag van je browser), wordt niet naar ons verstuurd en bevat geen persoonsgegevens. Je kunt hem op elk moment wissen via de instellingen van je browser.</p>
+      <p>Als je kiest tussen Engels, Frans en Nederlands, onthoudt je browser die keuze, zodat de website de volgende keer in dezelfde taal opent. Die keuze staat alleen op je eigen apparaat (in de lokale opslag van je browser), wordt niet naar ons verstuurd en bevat geen persoonsgegevens. Je kunt hem op elk moment wissen via de instellingen van je browser.</p>
 
       <h2>Lettertypen van Google</h2>
       <p>Voor de letters op deze website gebruiken we Google Fonts. Je browser haalt het lettertype op bij de servers van Google. Daarbij ziet Google je IP-adres, zoals bij elk bezoek aan een website. Google Fonts plaatst daarbij geen cookies. Meer hierover lees je in het <a href="https://policies.google.com/privacy" rel="noopener">privacybeleid van Google</a>.</p>
@@ -109,7 +109,7 @@ privacy = f'''
         <li>je e-mailadres en eventueel je telefoonnummer;</li>
         <li>wat je ons in je bericht vertelt, zoals welke apparatuur of vrachtruimte je aanbiedt.</li>
       </ul>
-      <p>Het contactformulier op deze website verstuurt zelf niets. Het opent je eigen e-mailprogramma met een kant-en-klaar bericht. Pas als je dat bericht verstuurt, ontvangen wij je gegevens per e-mail.</p>
+      <p>Als je het contactformulier op deze website invult, verstuurt het je naam, je organisatie, je e-mailadres, het onderwerp dat je kiest en je bericht via de dienst FormSubmit. FormSubmit stuurt die gegevens als e-mail door naar info@convoyconnect.nl. Je kunt ons ook rechtstreeks mailen; dan komt je bericht zonder tussenkomst van FormSubmit bij ons binnen.</p>
 
       <h2>Waarvoor we je gegevens gebruiken</h2>
       <ul>
@@ -121,6 +121,11 @@ privacy = f'''
 
       <h2>Met wie we gegevens delen</h2>
       <p>We verkopen je gegevens nooit. We delen ze alleen als dat nodig is om een zending te regelen, bijvoorbeeld met een transportpartner of een erkende hulporganisatie, en dan alleen de gegevens die daarvoor nodig zijn. Dat bespreken we eerst met je.</p>
+      <p>Daarnaast gebruiken we twee diensten die gegevens voor ons verwerken:</p>
+      <ul>
+        <li><a href="https://formsubmit.co" rel="noopener">FormSubmit</a>, dat berichten uit het contactformulier als e-mail naar ons doorstuurt;</li>
+        <li><a href="https://workspace.google.com" rel="noopener">Google Workspace</a>, waar onze e-mail op @convoyconnect.nl loopt en berichten worden bewaard.</li>
+      </ul>
 
       <h2>Hoe lang we gegevens bewaren</h2>
       <p>We bewaren je gegevens niet langer dan nodig. Berichten en contactgegevens verwijderen we uiterlijk twee jaar na ons laatste contact, tenzij we ze langer moeten bewaren voor de wet, zoals gegevens over giften voor de fiscale bewaarplicht van zeven jaar.</p>
